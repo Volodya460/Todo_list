@@ -8,7 +8,7 @@ import { generateToken } from '@/middlewares/authmMiddleware';
 import UserService from '@/services/user.service';
 import HttpError from '@/helpers/httpErrors';
 import { sendMail } from '@/helpers/sendEmail';
-const BASE_URL = process.env.BASE_URL as string;
+const BASE_URL = 'https://todo-list-byfp.onrender.com';
 const SECRET_KEY = process.env.SECRET_KEY as string;
 
 export class UserController {
