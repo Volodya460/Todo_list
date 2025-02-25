@@ -12,8 +12,7 @@
   "scripts": {
     "lint": "npx eslint packages/backend packages/frontend",
     "lint:fix": "npx eslint packages/backend packages/frontend --fix",
-    "prepare": "husky install",
-    "prepare:ci": "echo 'Skipping Husky installation in CI environment'"
+    "prepare": "[ \"$CI\" != \"true\" ] && husky install || echo 'Skipping Husky installation in CI environment'"
   },
   "keywords": [],
   "author": "",
