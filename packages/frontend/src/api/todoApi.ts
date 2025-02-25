@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { handleAxiosError } from '~/helpers/handleAxiosError';
 import { Todo } from '~typings/global';
-const BaseURL = import.meta.env.BASE_URL;
-
+const BaseURL = 'https://todo-list-byfp.onrender.com/api';
+console.log(BaseURL);
 export async function getTodos(
 	search?: string,
 	status?: 'completed' | 'pending',

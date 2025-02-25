@@ -6,7 +6,8 @@ import {
 	User,
 	UserRessponse,
 } from '~typings/global';
-const BaseURL = import.meta.env.BASE_URL;
+const BaseURL = 'https://todo-list-byfp.onrender.com/api';
+console.log(BaseURL);
 const setAuthHeader = (token: string) => {
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
