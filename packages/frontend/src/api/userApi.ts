@@ -6,7 +6,7 @@ import {
 	User,
 	UserRessponse,
 } from '~typings/global';
-const BaseURL = 'http://localhost:3000/api';
+const BaseURL = import.meta.env.BASE_URL;
 const setAuthHeader = (token: string) => {
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };

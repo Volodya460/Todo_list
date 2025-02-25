@@ -3,14 +3,6 @@ import { PrismaClient, Todo } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default class TodoService {
-	// async findAll(ownerId: number): Promise<Todo[]> {
-	// 	return prisma.todo.findMany({
-	// 		where: {
-	// 			ownerId,
-	// 		},
-	// 	});
-	// }
-
 	async findFAll(
 		ownerId: number,
 		search?: string,
@@ -21,10 +13,8 @@ export default class TodoService {
 		return prisma.todo.findMany({
 			where: {
 				OR: [
-					// 1️⃣ Если isPublic === true → получаем публичные Todo всех пользователей
 					isPublic === true ? { isPublic: true } : {},
 
-					// 2️⃣ Если isPublic === false → загружаем только задачи текущего пользователя
 					isPublic === false || isPublic === undefined
 						? { ownerId }
 						: {},
@@ -41,8 +31,8 @@ export default class TodoService {
 									},
 								],
 							}
-						: {}, // Если search не передан, фильтр не применяется
-					completed !== undefined ? { completed } : {}, // Если completed не передан, фильтр не применяется
+						: {},
+					completed !== undefined ? { completed } : {},
 				],
 			},
 		});

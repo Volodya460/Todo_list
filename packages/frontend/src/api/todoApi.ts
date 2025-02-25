@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { handleAxiosError } from '~/helpers/handleAxiosError';
 import { Todo } from '~typings/global';
-const BaseURL = 'http://localhost:3000/api';
+const BaseURL = import.meta.env.BASE_URL;
 
 export async function getTodos(
 	search?: string,

@@ -7,7 +7,7 @@ import AppRouter from './routes';
 import { initializePassport } from 'passport-config';
 import HttpError from './helpers/httpErrors';
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const app: Express = express();
 
 initializePassport(passport);
@@ -30,6 +30,6 @@ app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
 	res.status(status).json({ message });
 });
 
-app.listen(port, () => {
-	console.log(`Now listening on port ${port}`);
+app.listen(PORT, () => {
+	console.log(`Now listening on port ${PORT}`);
 });
