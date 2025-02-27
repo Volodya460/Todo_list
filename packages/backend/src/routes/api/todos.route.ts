@@ -10,7 +10,7 @@ import { authenticate } from '@/middlewares/authmMiddleware';
 const todosRouter: Router = Router();
 
 todosRouter.get(
-	'/all',
+	'/',
 	authenticate,
 	ctrlWrapper(todoController.getAllTodo.bind(todoController)),
 );
