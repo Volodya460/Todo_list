@@ -62,7 +62,7 @@ const App = (): React.ReactNode => {
 
 				<Route path="/" element={<SharedLayout />}>
 					<Route
-						path="todos"
+						path="/todos"
 						element={
 							<PrivateRoutes
 								component={<TodoListPage />}
@@ -71,7 +71,7 @@ const App = (): React.ReactNode => {
 						}
 					/>
 					<Route
-						path="todo/:id"
+						path="/todo/:id"
 						element={
 							<PrivateRoutes
 								component={<TodoPage />}
