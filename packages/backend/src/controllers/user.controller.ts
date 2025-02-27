@@ -144,7 +144,7 @@ export class UserController {
 		}
 
 		const token = generateToken({ email }, '1h');
-		const resetUrl = `http://localhost:5173/reset-password?token=${token}`;
+		const resetUrl = `${BASE_URL}/api/user/reset-password?token=${token}`;
 		const forgotPassword = {
 			to: email,
 			subject: 'Forgot Password',
