@@ -1,8 +1,12 @@
 {
 	"rewrites": [
 		{
-			"source": "/api/:path*",
-			"destination": "https://todo-list-byfp.onrender.com/api/:path*"
+			"source": "/todos",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/todo/:id",
+			"destination": "/index.html"
 		}
 	]
 }

@@ -6,4 +6,14 @@ import EnvironmentPlugin from 'vite-plugin-environment';
 
 export default defineConfig({
 	plugins: [react(), svgr(), ViteAliases(), EnvironmentPlugin('all')],
+	server: {
+		middlewareMode: 'html',
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: undefined,
+			},
+		},
+	},
 });
