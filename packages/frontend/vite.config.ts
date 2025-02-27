@@ -9,11 +9,4 @@ export default defineConfig({
 	server: {
 		middlewareMode: 'html',
 	},
-	build: {
-		rollupOptions: {
-			output: {
-				manualChunks: undefined,
-			},
-		},
-	},
 });

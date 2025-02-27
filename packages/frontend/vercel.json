@@ -1,11 +1,7 @@
 {
 	"rewrites": [
 		{
-			"source": "/todos",
-			"destination": "/index.html"
-		},
-		{
-			"source": "/todo/:id",
+			"source": "/(.*)",
 			"destination": "/index.html"
 		}
 	]
