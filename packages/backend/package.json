@@ -2,7 +2,7 @@
 	"name": "cgs-backend",
 	"version": "1.0.0",
 	"scripts": {
-		"build": "rimraf dist && tsc",
+		"build": "rimraf dist && tsc && tsc-alias",
 		"prestart": "npm run build",
 		"start": "node dist/src/app.js",
 		"preserve": "npm run build",
@@ -58,7 +58,7 @@
 		"prettier": "^3.2.5",
 		"prisma": "^6.0.0",
 		"ts-node": "^10.9.2",
-		"tsc-alias": "^1.8.8",
+		"tsc-alias": "^1.8.16",
 		"typescript": "^5.2.2"
 	}
 }
