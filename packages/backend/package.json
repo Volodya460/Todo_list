@@ -3,13 +3,14 @@
 	"version": "1.0.0",
 	"scripts": {
 		"build": "rimraf dist && tsc && tsc-alias",
-		"prestart": "npm run build",
+		"prestart": "yarn build",
 		"start": "node dist/src/app.js",
-		"preserve": "npm run build",
-		"serve": "concurrently \"tsc -w\" \"tsc-alias -w\" \"nodemon dist/app.js\" ",
-		"lint": "npx eslint ./src",
-		"lint:fix": "npx eslint ./src --fix",
-		"prepare": "husky"
+		"dev": "concurrently \"tsc -w\" \"tsc-alias -w\" \"nodemon dist/src/app.js\"",
+		"lint": "eslint ./src",
+		"lint:fix": "eslint ./src --fix",
+		"prepare": "husky",
+		"prisma:generate": "prisma generate",
+		"prisma:migrate:deploy": "prisma migrate deploy"
 	},
 	"keywords": [],
 	"author": "",
