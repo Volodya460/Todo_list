@@ -10,6 +10,8 @@ import HttpError from '@/helpers/httpErrors';
 import { sendMail } from '@/helpers/sendEmail';
 
 const BASE_URL = 'https://todo-list-byfp.onrender.com';
+const FRONTEND_BASE_URL =
+	'https://frontend-sts9nbnbj-volodya460s-projects.vercel.app';
 const SECRET_KEY = process.env.SECRET_KEY as string;
 
 export class UserController {
@@ -146,7 +148,7 @@ export class UserController {
 		}
 
 		const token = generateToken({ email }, '1h');
-		const resetUrl = `${BASE_URL}/reset-password?token=${token}`;
+		const resetUrl = `${FRONTEND_BASE_URL}/reset-password?token=${token}`;
 		const forgotPassword = {
 			to: email,
 			subject: 'Forgot Password',
