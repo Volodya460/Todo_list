@@ -6,7 +6,7 @@ import {
 	User,
 	UserRessponse,
 } from '~typings/global';
-const BaseURL = process.env.NEXT_PUBLIC_API_URL;
+const BaseURL = process.env['NEXT_PUBLIC_API_URL'];
 console.log(BaseURL);
 const setAuthHeader = (token: string) => {
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`;

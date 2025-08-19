@@ -1,30 +1,31 @@
 import sgMail, { ResponseError } from '@sendgrid/mail';
-import dotenv from 'dotenv';
 
-dotenv.config();
+import * as brevo from '@getbrevo/brevo';
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
+const apiKey = process.env.BREVO_API_KEY;
 
-interface SendMailData {
+if (!apiKey) {
+	throw new Error('BREVO_API_KEY is not set');
+}
+const senderEmail = process.env.BREVO_SENDER_EMAIL!;
+const senderName = process.env.BREVO_SENDER_NAME || 'App';
+
+const client = new brevo.TransactionalEmailsApi();
+client.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, apiKey);
+
+export type SendMailOptions = {
 	to: string;
 	subject: string;
 	html: string;
-}
-
-export const sendMail = async (data: SendMailData): Promise<boolean> => {
-	try {
-		const email = { ...data, from: 'infernokgg@gmail.com' };
-
-		await sgMail.send(email);
-
-		return true;
-	} catch (error) {
-		if (error instanceof ResponseError) {
-			console.error('SendGrid error:', error);
-		} else {
-			console.error('Unexpected error:', error);
-		}
-
-		throw new Error('Failed to send email');
-	}
 };
+
+export async function sendMail(opts: SendMailOptions): Promise<void> {
+	console.log(opts);
+	const { to, subject, html } = opts;
+	await client.sendTransacEmail({
+		sender: { email: senderEmail, name: senderName },
+		to: [{ email: to }],
+		subject,
+		htmlContent: html,
+	});
+}
